@@ -8,6 +8,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@commonComponents': path.resolve(__dirname, './src/App/commonComponents'),
       '@pages': path.resolve(__dirname, './src/App/pages'),
+      '@App': path.resolve(__dirname, './src/App'),
     },
   },
   plugins: [react()],

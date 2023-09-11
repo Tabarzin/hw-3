@@ -1,0 +1,38 @@
+@import "@App/variables.scss";
+@import "@App/styles.scss";
+
+.navbarlinks {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  justify-content: space-around;
+}
+
+.navbarlinks_text {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  color: var(--text-primary, var(--brand, #518581));
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 122.222% */
+}
+
+.navbarlinks ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.text-accent {
+  color: var(--text-accent);
+  border-bottom: 3px solid var(--text-accent);
+  padding-bottom: 38px;
+}

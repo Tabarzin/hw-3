@@ -1,3 +1,10 @@
+@import "@App/variables.scss";
+@import "@App/styles.scss";
+
 .navbar {
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 2px solid var(--line-color, #f3f3f3);
+  background: var(--screen-color, #fff);
 }
