@@ -1,20 +1,12 @@
 @import "@App/variables.scss";
 @import "@App/styles.scss";
+@import "../../../Roboto/fonts.scss";
 
-.navbarlinks {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-  justify-content: space-around;
-  border-bottom: 2px solid var(--line-color, #f3f3f3);
-}
-
-.navbarlinks_text {
+.navbarlink {
   display: flex;
 
   justify-content: center;
-  align-items: center;
+
   gap: 10px;
   align-self: stretch;
   color: var(--text-primary, var(--brand, #518581));
@@ -23,17 +15,13 @@
   font-style: normal;
   font-weight: 600;
   line-height: 22px; /* 122.222% */
+  text-decoration: none;
+  padding: 20px;
+  position: relative;
+  bottom: -2px;
 }
 
-.navbarlinks ul {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
-
-.text-accent {
+.navbarlink_active {
   color: var(--text-accent);
   border-bottom: 3px solid var(--text-accent);
-  padding-bottom: 38px;
 }
