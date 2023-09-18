@@ -9,6 +9,7 @@ import About from './App/pages/About';
 import Categories from './App/pages/Categories';
 
 import Pagination from './App/pages/Pagination';
+import ProductPage from './App/pages/ProductPage';
 import Products from './App/pages/Products';
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />, // Render Products component here
+      },
+      {
+        path: '/product/:id',
+        element: <ProductPage productId={''} />,
       },
     ],
   },
