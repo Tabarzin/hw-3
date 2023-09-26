@@ -22,7 +22,7 @@ const ProductCards = () => {
   return (
     <div className={styles.cards}>
       {products.map((product) => (
-        <Link key={product['id']} to={`/product/${product['id']}`}>
+        <Link key={product['id']} to={`/product/${product['id']}`} style={{ textDecoration: 'none' }}>
           <Card
             key={product['id']}
             image={product.images[1]}

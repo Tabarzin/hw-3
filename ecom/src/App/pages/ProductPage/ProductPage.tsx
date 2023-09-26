@@ -15,7 +15,6 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
   React.useEffect(() => {
     axios
       .get(`https://api.escuelajs.co/api/v1/products/${id}`)
-
       .then((response) => setProductDetails(response.data))
       .catch((error) => console.log(error));
   }, [id]);
@@ -24,6 +23,8 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
   return (
     <div className="product-details">
       <h2>{productDetails.id}</h2>
+      <p>{productDetails.description}</p>
+      <p>{productDetails.price}</p>
     </div>
   );
 };

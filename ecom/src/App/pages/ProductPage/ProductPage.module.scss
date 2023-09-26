@@ -1,2 +1,40 @@
 @import "@App/variables.scss";
 @import "@App/styles.scss";
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  margin-left: 100px;
+}
+
+.product_container {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.product_image {
+  width: 600px;
+  height: 600px;
+}
+
+.button_white {
+  background-color: #fff;
+}
+
+.title {
+  margin-bottom: var(--space-m);
+}
+
+.description {
+  margin-bottom: 40px;
+}
+
+.price {
+  margin-bottom: var(--space-xl);
+}
+
+.buttons {
+  display: flex;
+  gap: var(--space-xl);
+}
