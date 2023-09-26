@@ -1,8 +1,18 @@
+import BackButton from '@App/commonComponents/BackButton';
+import axios from 'axios';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchProduct } from '@/App/services/api';
+
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from './ProductPage.module.scss';
-import axios from 'axios';
+
+// Import Swiper styles
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/scrollbar';
 
 interface ProductDetailsProps {
   productId: string;
@@ -21,10 +31,29 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
   console.log(productDetails);
 
   return (
-    <div className="product-details">
-      <h2>{productDetails.id}</h2>
-      <p>{productDetails.description}</p>
-      <p>{productDetails.price}</p>
+    <div className={styles.product}>
+      <BackButton />
+      <div className={styles.product_container}>
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
+        >
+          {productDetails.images &&
+            productDetails.images.map((imageUrl: string, index: number) => (
+              <SwiperSlide key={index} className={styles.product_image}>
+                <img key={index} src={imageUrl} alt={`Product Image ${index + 1} `} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        <h2>{productDetails.id}</h2>
+        <p>{productDetails.description}</p>
+        <p>{productDetails.price}</p>
+      </div>
     </div>
   );
 };
