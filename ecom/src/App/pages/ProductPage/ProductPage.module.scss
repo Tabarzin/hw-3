@@ -10,12 +10,17 @@
 
 .product_container {
   display: flex;
-  gap: 50px;
+  gap: var(--space-xl);
 }
 
 .product_image {
   width: 600px;
   height: 600px;
+}
+
+.product_text_block {
+  display: flex;
+  flex-direction: column;
 }
 
 .button_white {
@@ -28,6 +33,7 @@
 
 .description {
   margin-bottom: 40px;
+  width: 34rem;
 }
 
 .price {

@@ -36,7 +36,7 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
       <div className={styles.product_container}>
         <Swiper
           modules={[Navigation, Scrollbar, A11y]}
-          spaceBetween={10}
+          spaceBetween={40}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
@@ -45,14 +45,16 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
         >
           {productDetails.images &&
             productDetails.images.map((imageUrl: string, index: number) => (
-              <SwiperSlide key={index} className={styles.product_image}>
-                <img key={index} src={imageUrl} alt={`Product Image ${index + 1} `} />
+              <SwiperSlide key={index}>
+                <img key={index} className={styles.product_image} src={imageUrl} alt={`Product Image ${index + 1} `} />
               </SwiperSlide>
             ))}
         </Swiper>
-        <h2>{productDetails.id}</h2>
-        <p>{productDetails.description}</p>
-        <p>{productDetails.price}</p>
+        <div className={styles.product_text_block}>
+          <h2>{productDetails.title}</h2>
+          <p className={styles.description}>{productDetails.description}</p>
+          <p>{productDetails.price}</p>
+        </div>
       </div>
     </div>
   );
