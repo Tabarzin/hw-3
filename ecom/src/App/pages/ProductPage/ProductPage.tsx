@@ -6,13 +6,13 @@ import { useParams } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import styles from './ProductPage.module.scss';
 
 // Import Swiper styles
 import 'swiper/scss';
 import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
+
 import 'swiper/scss/scrollbar';
+import styles from './ProductPage.module.scss';
 
 interface ProductDetailsProps {
   productId: string;
@@ -35,8 +35,8 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
       <BackButton />
       <div className={styles.product_container}>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={30}
+          modules={[Navigation, Scrollbar, A11y]}
+          spaceBetween={10}
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
