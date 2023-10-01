@@ -2,8 +2,9 @@ import BackButton from '@App/commonComponents/BackButton';
 import axios from 'axios';
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
+import Text from '@App/commonComponents/Text';
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,6 +14,7 @@ import 'swiper/scss/navigation';
 
 import 'swiper/scss/scrollbar';
 import styles from './ProductPage.module.scss';
+import Button from '@/App/commonComponents/Button';
 
 interface ProductDetailsProps {
   productId: string;
@@ -51,9 +53,17 @@ const ProductPage: React.FC<ProductDetailsProps> = ({ productId }) => {
             ))}
         </Swiper>
         <div className={styles.product_text_block}>
-          <h2>{productDetails.title}</h2>
-          <p className={styles.description}>{productDetails.description}</p>
-          <p>{productDetails.price}</p>
+          <Text view="title" className={styles.title}>
+            {productDetails.title}
+          </Text>
+          <Text view="p-20" maxLines={2} className={styles.description}>
+            {productDetails.description}
+          </Text>
+          <Text view="title" className={styles.price}>{`$${productDetails.price}`}</Text>
+          <div className={styles.buttons}>
+            <Button>Buy Now</Button>
+            <Button>Add to Cart</Button>
+          </div>
         </div>
       </div>
     </div>
