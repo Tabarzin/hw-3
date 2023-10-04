@@ -1,10 +1,10 @@
 import Button from '@App/commonComponents/Button';
 import Card from '@App/commonComponents/Card';
 
+import { fetchProducts } from '@App/services/api';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCards.module.scss';
-import { fetchProducts } from '@/App/services/api';
 
 const ProductCards = () => {
   const [products, setProducts] = React.useState([]);

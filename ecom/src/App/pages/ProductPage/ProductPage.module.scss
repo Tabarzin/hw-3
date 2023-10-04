@@ -1,11 +1,17 @@
 @import "@App/variables.scss";
 @import "@App/styles.scss";
 
+.product_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
 .product {
   display: flex;
   flex-direction: column;
   margin-top: 60px;
-  margin-left: 100px;
+  margin-bottom: var(--space-xl);
 }
 
 .product_container {
