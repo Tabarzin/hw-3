@@ -10,3 +10,8 @@
   line-height: 48px; /* 150% */
   margin-bottom: var(--space-l);
 }
+
+.related_block {
+  display: flex;
+  justify-content: space-between;
+}
