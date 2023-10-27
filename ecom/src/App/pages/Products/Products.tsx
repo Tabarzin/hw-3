@@ -1,11 +1,11 @@
+import Button from '@App/commonComponents/Button';
+import Input from '@App/commonComponents/Input';
+import MultiDropdown from '@App/commonComponents/MultiDropdown';
+import Text from '@App/commonComponents/Text';
 import * as React from 'react';
+import ProductCards from './ProductCards';
 import ProductsTitle from './ProductsTitle';
 import styles from './Products.module.scss';
-import Button from '@/App/commonComponents/Button';
-import Input from '@/App/commonComponents/Input';
-import MultiDropdown from '@/App/commonComponents/MultiDropdown';
-import Text from '@/App/commonComponents/Text';
-import ProductCards from './ProductCards';
 
 const Products = () => {
   const getPlaceholderText = (selectedOptions: Option[]) => {
