@@ -46,17 +46,18 @@ import Button from '@App/commonComponents/Button';
 import Card from '@App/commonComponents/Card';
 import paginationStore from '@App/stores/PaginationStore';
 import productStore from '@App/stores/ProductsStore';
+import { runInAction } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductCards.module.scss';
 
 const ProductCards: React.FC = observer(() => {
-  const products = productStore.products; // Access products from the MobX store
-
   React.useEffect(() => {
-    productStore.fetchProductsData(); // Fetch data when the component mounts
+    productStore.fetchProductsData();
   }, []);
+
+  const products = productStore.products;
 
   const startIdx = (paginationStore.currentPage - 1) * paginationStore.itemsPerPage;
   const endIdx = startIdx + paginationStore.itemsPerPage;

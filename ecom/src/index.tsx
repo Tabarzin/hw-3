@@ -69,8 +69,6 @@ import ProductPage from './App/pages/ProductPage';
 import Products from './App/pages/Products';
 import config from './config/configureMobX';
 
-// Import your MobX store(s) here
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -84,19 +82,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/categories',
-        element: <Categories />, // Render Categories component here
+        element: <Categories />,
       },
       {
         path: '/about',
-        element: <About />, // Render About component here
+        element: <About />,
       },
       {
         path: '/products',
-        element: <Products />, // Render Products component here
+        element: <Products />,
       },
       {
         path: '/product/:id',
-        element: <ProductPage />,
+        element: <ProductPage productId={''} />,
       },
     ],
   },
@@ -105,7 +103,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <RouterProvider router={router}>
-    {/* Pass your MobX stores as props to your top-level component */}
     <App productStore={productStore} paginationStore={paginationStore} />
   </RouterProvider>,
 );

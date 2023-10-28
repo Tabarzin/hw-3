@@ -8,10 +8,15 @@ class ProductStore {
     makeAutoObservable(this);
   }
 
+  get numberOfProducts() {
+    return this.products.length;
+  }
+
   async fetchProductsData() {
     try {
       const response = await fetchProducts();
       const data = response.data;
+
       runInAction(() => {
         this.products = data;
       });

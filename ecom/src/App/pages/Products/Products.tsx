@@ -2,12 +2,23 @@ import Button from '@App/commonComponents/Button';
 import Input from '@App/commonComponents/Input';
 import MultiDropdown from '@App/commonComponents/MultiDropdown';
 import Text from '@App/commonComponents/Text';
+import productStore from '@App/stores/ProductsStore';
+import { useLocalObservable } from 'mobx-react-lite';
 import * as React from 'react';
 import ProductCards from './ProductCards';
 import ProductsTitle from './ProductsTitle';
 import styles from './Products.module.scss';
 
 const Products = () => {
+  const [numberOfProducts, setNumberOfProducts] = React.useState(0);
+
+  React.useEffect(() => {
+    productStore.fetchProductsData().then(() => {
+      setNumberOfProducts(productStore.products.length);
+    });
+  }, []);
+  // const numberOfProducts = productStore.products.length;
+
   const getPlaceholderText = (selectedOptions: Option[]) => {
     if (selectedOptions.length === 0) {
       return 'Filter';
@@ -15,6 +26,7 @@ const Products = () => {
 
     return 'Filter';
   };
+
   return (
     <div className={styles.products}>
       <ProductsTitle />
@@ -47,7 +59,7 @@ const Products = () => {
             Total product
           </Text>
           <Text view={'p-20'} color={'accent'} weight={'bold'}>
-            184
+            {numberOfProducts}
           </Text>
         </div>
         <ProductCards />
