@@ -58,9 +58,11 @@ const Products = () => {
           <Text tag={'h1'} color={'primary'} weight={'bold'}>
             Total product
           </Text>
-          <Text view={'p-20'} color={'accent'} weight={'bold'}>
-            {numberOfProducts}
-          </Text>
+          {numberOfProducts !== 0 ? (
+            <Text view={'p-20'} color={'accent'} weight={'bold'}>
+              {numberOfProducts}
+            </Text>
+          ) : null}
         </div>
         <ProductCards />
       </div>
