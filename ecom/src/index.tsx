@@ -54,7 +54,7 @@
 // );
 
 import paginationStore from '@App/stores/PaginationStore';
-import productStore from '@App/stores/ProductsStore';
+import productsStore from '@App/stores/ProductsStore';
 import Navbar from '@commonComponents/Navbar';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
@@ -103,6 +103,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <RouterProvider router={router}>
-    <App productStore={productStore} paginationStore={paginationStore} />
+    <App productsStore={productsStore} paginationStore={paginationStore} />
   </RouterProvider>,
 );

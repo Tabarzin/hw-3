@@ -1,17 +1,42 @@
-import { makeAutoObservable } from 'mobx';
+// import { makeAutoObservable } from 'mobx';
+
+// class PaginationStore {
+//   currentPage = 1;
+//   itemsPerPage = 9;
+
+//   constructor() {
+//     makeAutoObservable(this);
+//   }
+
+//   setPage(page: number) {
+//     this.currentPage = page;
+//   }
+// }
+
+// const paginationStore = new PaginationStore();
+// export default paginationStore;
+
+import { observable, computed, action, makeAutoObservable } from 'mobx';
+import productsStore from '../ProductsStore/ProductsStore';
 
 class PaginationStore {
-  currentPage = 1;
-  itemsPerPage = 9;
+  @observable currentPage = 1; // Current page
+  @observable itemsPerPage = 9; // Number of items to display per page
 
-  constructor() {
-    makeAutoObservable(this);
+  @computed get totalProducts() {
+    return productsStore.products.length;
   }
 
-  setPage(page: number) {
+  @computed get totalPages() {
+    return Math.ceil(this.totalProducts / this.itemsPerPage);
+  }
+
+  @action setCurrentPage = (page) => {
     this.currentPage = page;
-  }
+    console.log('currentPage set to:', page);
+  };
 }
 
 const paginationStore = new PaginationStore();
+
 export default paginationStore;

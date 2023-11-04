@@ -2,9 +2,10 @@ import Button from '@App/commonComponents/Button';
 import Input from '@App/commonComponents/Input';
 import MultiDropdown from '@App/commonComponents/MultiDropdown';
 import Text from '@App/commonComponents/Text';
-import productStore from '@App/stores/ProductsStore';
+import productsStore from '@App/stores/ProductsStore';
 import { useLocalObservable } from 'mobx-react-lite';
 import * as React from 'react';
+import Pagination from '../Pagination';
 import ProductCards from './ProductCards';
 import ProductsTitle from './ProductsTitle';
 import styles from './Products.module.scss';
@@ -13,11 +14,11 @@ const Products = () => {
   const [numberOfProducts, setNumberOfProducts] = React.useState(0);
 
   React.useEffect(() => {
-    productStore.fetchProductsData().then(() => {
-      setNumberOfProducts(productStore.products.length);
+    productsStore.fetchProductsData().then(() => {
+      setNumberOfProducts(productsStore.products.length);
+      console.log(numberOfProducts, 'TOTAL PPPPPPPP');
     });
   }, []);
-  // const numberOfProducts = productStore.products.length;
 
   const getPlaceholderText = (selectedOptions: Option[]) => {
     if (selectedOptions.length === 0) {
