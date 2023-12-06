@@ -138,15 +138,8 @@ const Pagination = (props) => {
   const lastPage = paginationRange[paginationRange.length - 1];
   return (
     <ul className={styles.pagination_container}>
-      <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === 1,
-        })}
-        onClick={onPrevious}
-      >
-        <div className="arrow left" />
-      </li>
-
+      <li className={`${styles.pagination_item} ${currentPage === 1 ? styles.disabled : ''}`} onClick={onPrevious}></li>
+      <div className="arrow left" />
       {paginationRange.map((pageNumber) => {
         if (pageNumber === DOTS) {
           return (
@@ -159,9 +152,7 @@ const Pagination = (props) => {
         return (
           <li
             key={pageNumber}
-            className={classnames('pagination-item', {
-              selected: pageNumber === currentPage,
-            })}
+            className={`${styles.pagination_item} ${pageNumber === currentPage ? styles.selected : ''}`}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
