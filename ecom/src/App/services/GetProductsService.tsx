@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as React from 'react';
 
-const getProducts = () => {
+const GetProducts = () => {
   React.useEffect(() => {
     const fetch = async () => {
       const result = await axios({
@@ -14,6 +14,8 @@ const getProducts = () => {
 
     fetch();
   }, []);
+
+  return <div>Fetching products...</div>
 };
 
-export default getProducts;
+export default GetProducts;

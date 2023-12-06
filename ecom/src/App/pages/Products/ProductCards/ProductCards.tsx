@@ -142,7 +142,7 @@ const ProductCards: React.FC = observer(() => {
   const products = productsStore.products;
   console.log(products);
 
-  let PageSize = 10;
+  let PageSize = 9;
 
   const [currentPage, setCurrentPage] = React.useState(1);
 

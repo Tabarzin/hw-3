@@ -4,3 +4,9 @@
 .pagination {
   display: flex;
 }
+
+.pagination_container {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
