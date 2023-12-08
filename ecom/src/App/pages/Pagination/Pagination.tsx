@@ -105,12 +105,11 @@
 // export default Pagination;
 
 import { usePagination, DOTS } from '@App/customHooks/usePagination';
-import classnames from 'classnames';
 import * as React from 'react';
 import styles from './Pagination.module.scss';
 
 const Pagination = (props) => {
-  const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize, className } = props;
+  const { onPageChange, totalCount, siblingCount = 1, currentPage, pageSize } = props;
 
   const paginationRange = usePagination({
     currentPage,
@@ -138,8 +137,30 @@ const Pagination = (props) => {
   const lastPage = paginationRange[paginationRange.length - 1];
   return (
     <ul className={styles.pagination_container}>
-      <li className={`${styles.pagination_item} ${currentPage === 1 ? styles.disabled : ''}`} onClick={onPrevious}></li>
-      <div className="arrow left" />
+      <li
+        className={`${styles.pagination_item} ${currentPage === 1 ? styles.disabled : styles.active}`}
+        onClick={onPrevious}
+      ></li>
+      <div className={styles.arrow_left}>
+        <svg
+          className={styles.arrow_left}
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <path
+            d="M20.12 26.5599L11.4267 17.8666C10.4 16.8399 10.4 15.1599 11.4267 14.1333L20.12 5.43994"
+            stroke="#AFADB5"
+            strokeWidth="1.5"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+
       {paginationRange.map((pageNumber) => {
         if (pageNumber === DOTS) {
           return (
@@ -160,12 +181,21 @@ const Pagination = (props) => {
         );
       })}
       <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === lastPage,
-        })}
+        className={`${styles.pagination_item} ${currentPage === lastPage ? styles.disabled : styles.active}`}
         onClick={onNext}
       >
-        <div className="arrow right" />
+        <div className="arrow right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path
+              d="M11.88 26.5599L20.5733 17.8666C21.6 16.8399 21.6 15.1599 20.5733 14.1333L11.88 5.43994"
+              stroke="#151411"
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </li>
     </ul>
   );
