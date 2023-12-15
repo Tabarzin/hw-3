@@ -6,6 +6,6 @@ export const fetchProducts = () => {
   return axios.get(`${API_BASE_URL}/products`);
 };
 
-export const fetchProduct = (productId: string | undefined) => {
+export const fetchProduct = () => {
   return axios.get(`${API_BASE_URL}/products/`);
 };

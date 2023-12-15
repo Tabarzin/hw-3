@@ -140,9 +140,9 @@ const ProductCards: React.FC = observer(() => {
   }, []);
 
   const products = productsStore.products;
-  console.log(products);
+  console.log('PRODUCTS', products);
 
-  let PageSize = 9;
+  const PageSize = 9;
 
   const [currentPage, setCurrentPage] = React.useState(1);
 
@@ -150,7 +150,7 @@ const ProductCards: React.FC = observer(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
     return products.slice(firstPageIndex, lastPageIndex);
-  }, [PageSize, currentPage]);
+  }, [currentPage, products]);
 
   console.log(currentTableData, 'TABLE');
 
